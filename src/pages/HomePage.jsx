@@ -17,7 +17,7 @@ export const HomePage = () => {
     <>
       <div className="grid grid-cols-3 place-items-center gap-y-10">
         {pokemon.map((item, index) => (
-          <CardPokemon key={index} pokemon={item} />
+          <CardPokemon key={index} pokemon={item} id={item.id} />
         ))}
       </div>
     </>

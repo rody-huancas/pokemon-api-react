@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { getColor, getColorEtiqueta } from "../helpers/colors";
+import { getColor } from "../helpers/colors";
+import { TypePokemon } from "./TypePokemon";
+import { getPokemon } from "../api/pokemon.api";
 
 export const CardPokemon = ({ pokemon }) => {
   const { name, url } = pokemon;
@@ -9,7 +11,7 @@ export const CardPokemon = ({ pokemon }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(url);
+        const response = await getPokemon(url);
         const data = response.data;
         setPokemonData(data);
       } catch (error) {
@@ -25,31 +27,26 @@ export const CardPokemon = ({ pokemon }) => {
   if (!pokemonData) {
     return <div>Cargando...</div>;
   }
-
+  // console.log(pokemonData.types);
   const frontDefault = pokemonData.sprites?.other?.dream_world?.front_default;
   const types = pokemonData.types.map((type) => type.type.name);
 
   return (
     <>
       <div
-        className={`w-[300px] h-[120px] rounded-lg flex items-center justify-between p-3`}
+        className={`w-[300px] h-[120px] rounded-lg flex items-center justify-between gap-5 p-3`}
         style={{ background: getColor(types[0]) }}
       >
         <div>
-          <h1>#{id}</h1>
-          <h3>{name}</h3>
+          <span className="font-black">#{id}</span>
+          <h3 className="text-2xl text-white capitalize font-bold">{name}</h3>
           <div className="flex items-center gap-2 mt-2">
-            {types.map((type, index) => (
-              <p
-                key={index}
-                className={`rounded-lg px-3 py-1 text-white`}
-                style={{ background: getColorEtiqueta(type) }}
-              >
-                {type}
-              </p>
+            {types.map((type) => (
+              <TypePokemon key={type} type={type} />
             ))}
           </div>
         </div>
+
         {frontDefault && (
           <img
             className="w-[120px] h-[130px] mb-10"

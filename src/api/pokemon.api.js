@@ -5,3 +5,4 @@ const pokemonApi = axios.create({
 })
 
 export const getAllPokemons = () => pokemonApi.get("/");
+export const getPokemon = (url) => pokemonApi.get(url);

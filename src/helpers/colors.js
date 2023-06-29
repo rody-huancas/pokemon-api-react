@@ -54,9 +54,9 @@ export const getColorEtiqueta = (type) => {
         case "grass":
             return "#00b88f";
         case "fire":
-            return "#e84f42";
+            return "#e80d0d";
         case "normal":
-            return "#a8a8a8";
+            return "#8e8989";
         case "poison":
             return "#6b1b99";
         case "electric":
