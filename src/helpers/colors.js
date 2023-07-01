@@ -41,7 +41,7 @@ export const getColor = (type) => {
         case "shadow":
             return "#4f4f4f";
         default:
-            return "";
+            return "#00c36f";
     }
 };
 
@@ -88,6 +88,6 @@ export const getColorEtiqueta = (type) => {
         case "shadow":
             return "#424242";
         default:
-            return "";
+            return "#00c36f";
     }
 };

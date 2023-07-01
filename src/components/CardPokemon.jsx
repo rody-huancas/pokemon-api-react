@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { getColor } from "../helpers/colors";
 import { TypePokemon } from "./TypePokemon";
@@ -34,7 +33,7 @@ export const CardPokemon = ({ pokemon }) => {
   return (
     <>
       <div
-        className={`w-[300px] h-[120px] rounded-lg flex items-center justify-between gap-5 p-3`}
+        className={`w-[300px] h-[120px] rounded-lg flex items-center justify-between gap-5 p-3 cursor-pointer hover:opacity-80 transition-all`}
         style={{ background: getColor(types[0]) }}
       >
         <div>
