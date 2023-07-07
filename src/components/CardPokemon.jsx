@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getColor } from "../helpers/colors";
 import { TypePokemon } from "./TypePokemon";
 import { getPokemon } from "../api/pokemon.api";
@@ -6,6 +7,7 @@ import { getPokemon } from "../api/pokemon.api";
 export const CardPokemon = ({ pokemon }) => {
   const { name, url } = pokemon;
   const [pokemonData, setPokemonData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,11 +32,16 @@ export const CardPokemon = ({ pokemon }) => {
   const frontDefault = pokemonData.sprites?.other?.dream_world?.front_default;
   const types = pokemonData.types.map((type) => type.type.name);
 
+  const handleClick = () => {
+    navigate(`/detail/${id}`);
+  };
+
   return (
     <>
       <div
         className={`w-[300px] h-[120px] rounded-lg flex items-center justify-between gap-5 p-3 cursor-pointer hover:opacity-80 hover:scale-105 transition-all`}
         style={{ background: getColor(types[0]) }}
+        onClick={handleClick}
       >
         <div>
           <span className="font-black">#{id}</span>
