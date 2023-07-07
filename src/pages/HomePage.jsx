@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { CardPokemon } from "../components/CardPokemon";
+import { useState, useEffect } from "react";
+import { CardPokemon } from "../components";
 import {
   getAllPokemons,
   getNextPokemons,
@@ -56,7 +56,7 @@ export const HomePage = () => {
       />
 
       {filteredPokemon.length > 0 ? (
-        <div className="grid grid-cols-3 place-items-center gap-y-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 place-items-center gap-10">
           {filteredPokemon.map((item, index) => (
             <CardPokemon key={index} pokemon={item} id={item.id} />
           ))}

@@ -33,7 +33,7 @@ export const CardPokemon = ({ pokemon }) => {
   return (
     <>
       <div
-        className={`w-[300px] h-[120px] rounded-lg flex items-center justify-between gap-5 p-3 cursor-pointer hover:opacity-80 transition-all`}
+        className={`w-[300px] h-[120px] rounded-lg flex items-center justify-between gap-5 p-3 cursor-pointer hover:opacity-80 hover:scale-105 transition-all`}
         style={{ background: getColor(types[0]) }}
       >
         <div>

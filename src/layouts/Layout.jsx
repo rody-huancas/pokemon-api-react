@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
-import { NavBar } from "../components/NavBar";
+import { NavBar } from "../components";
 
 export const Layout = () => {
   return (
     <>
-      <div className="w-[1024px] mx-auto my-20">
+      <div className="lg:w-[1024px] mx-auto my-20 px-5 lg:px-0">
         <NavBar />
-        <main>
+        <main className="flex flex-col items-center">
           <Outlet />
         </main>
       </div>
